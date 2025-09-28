@@ -24,7 +24,7 @@ export const memory = new Memory({
 
 export const builderAgent = new Agent({
   name: "BuilderAgent",
-  model: anthropic("claude-3-7-sonnet-20250219"),
+  model: anthropic("claude-4-sonnet-20250514"),
   instructions: SYSTEM_MESSAGE,
   memory,
   tools: {

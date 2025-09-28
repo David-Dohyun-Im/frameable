@@ -55,7 +55,7 @@ export type { Agent } from "@mastra/core/agent";
  *
  * const myCustomAgent = new Agent({
  *   name: "MyCustomAgent",
- *   model: anthropic("claude-3-5-sonnet-20241022"),
+ *   model: anthropic("claude-4-sonnet-20250514"),
  *   instructions: "Your custom instructions here",
  *   memory: new Memory({
  *     options: { lastMessages: 1000 },
