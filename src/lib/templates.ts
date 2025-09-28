@@ -1,20 +1,78 @@
-export const templates: Record<
-  string,
-  { name: string; repo: string; logo: string }
-> = {
-  nextjs: {
-    name: "Next.js",
-    repo: "https://github.com/freestyle-sh/freestyle-base-nextjs-shadcn",
-    logo: "/logos/next.svg",
+export interface TemplateMetadata {
+  id: string;
+  name: string;
+  repo: string;
+  description: string;
+  useCases: string[];
+  features: string[];
+  technologies: string[];
+}
+
+export const templates: Record<string, TemplateMetadata> = {
+  portfolio: {
+    id: "portfolio",
+    name: "Portfolio Template",
+    repo: "https://github.com/David-Dohyun-Im/portfolio-template",
+    description: "A modern portfolio website template with clean design, project showcase, and contact sections. Perfect for developers, designers, and professionals to showcase their work.",
+    useCases: [
+      "Personal portfolio websites",
+      "Developer portfolios", 
+      "Designer showcases",
+      "Professional profiles",
+      "Creative portfolios"
+    ],
+    features: [
+      "Responsive design",
+      "Project gallery",
+      "About section",
+      "Contact form",
+      "Blog integration",
+      "SEO optimized"
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"]
   },
-  vite: {
-    name: "React Vite",
-    repo: "https://github.com/freestyle-sh/freestyle-base-vite-react-typescript-swc",
-    logo: "/logos/vite.svg",
+  newsletter: {
+    id: "newsletter",
+    name: "Newsletter Template", 
+    repo: "https://github.com/David-Dohyun-Im/newsletter-template",
+    description: "A newsletter and blog template for content creators, writers, and businesses. Features subscription management, article layouts, and email integration.",
+    useCases: [
+      "Newsletter websites",
+      "Blog platforms",
+      "Content marketing sites",
+      "Email subscription services",
+      "Publishing platforms"
+    ],
+    features: [
+      "Article management",
+      "Email subscriptions",
+      "Content categorization",
+      "Search functionality",
+      "Social sharing",
+      "RSS feeds"
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"]
   },
-  expo: {
-    name: "Expo",
-    repo: "https://github.com/freestyle-sh/freestyle-expo",
-    logo: "/logos/expo.svg",
-  },
+  ecommerce: {
+    id: "ecommerce",
+    name: "E-commerce Template",
+    repo: "https://github.com/David-Dohyun-Im/shopify-ecommerce-template", 
+    description: "A comprehensive e-commerce template with product catalogs, shopping cart, payment integration, and order management. Built for online stores and marketplaces.",
+    useCases: [
+      "Online stores",
+      "Marketplace platforms",
+      "Product catalogs",
+      "B2C e-commerce",
+      "Digital product sales"
+    ],
+    features: [
+      "Product management",
+      "Shopping cart",
+      "Payment processing",
+      "Order tracking",
+      "Inventory management",
+      "Customer accounts"
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Shopify"]
+  }
 };

@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { PromptInput, PromptInputActions } from "@/components/ui/prompt-input";
-import { FrameworkSelector } from "@/components/framework-selector";
 import Image from "next/image";
 import LogoSvg from "@/logo.svg";
 import { useState } from "react";
@@ -17,7 +16,6 @@ const queryClient = new QueryClient();
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
-  const [framework, setFramework] = useState("nextjs");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -25,7 +23,7 @@ export default function Home() {
     setIsLoading(true);
 
     router.push(
-      `/app/new?message=${encodeURIComponent(prompt)}&template=${framework}`
+      `/app/new?message=${encodeURIComponent(prompt)}`
     );
   };
 
@@ -58,12 +56,6 @@ export default function Home() {
               <div className="relative w-full max-w-full overflow-hidden">
                 <div className="w-full bg-accent rounded-md relative z-10 border transition-colors">
                   <PromptInput
-                    leftSlot={
-                      <FrameworkSelector
-                        value={framework}
-                        onChange={setFramework}
-                      />
-                    }
                     isLoading={isLoading}
                     value={prompt}
                     onValueChange={setPrompt}

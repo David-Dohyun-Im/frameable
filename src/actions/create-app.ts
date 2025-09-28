@@ -5,25 +5,29 @@ import { appsTable, appUsers } from "@/db/schema";
 import { db } from "@/db/schema";
 import { freestyle } from "@/lib/freestyle";
 import { templates } from "@/lib/templates";
+import { selectBestTemplate } from "@/lib/template-selector";
 import { memory, builderAgent } from "@/mastra/agents/builder";
 import { sendMessageWithStreaming } from "@/lib/internal/stream-manager";
 
 export async function createApp({
   initialMessage,
-  templateId,
 }: {
   initialMessage?: string;
-  templateId: string;
 }) {
   console.time("get user");
   const user = await getUser();
   console.timeEnd("get user");
 
-  if (!templates[templateId]) {
-    throw new Error(
-      `Template ${templateId} not found. Available templates: ${Object.keys(templates).join(", ")}`
-    );
+  if (!initialMessage) {
+    throw new Error("Initial message is required for template selection");
   }
+
+  console.time("template selection");
+  const templateSelection = await selectBestTemplate(initialMessage);
+  console.timeEnd("template selection");
+
+  console.log(`Selected template: ${templateSelection.selectedTemplate.name} (confidence: ${templateSelection.confidence})`);
+  console.log(`Reasoning: ${templateSelection.reasoning}`);
 
   console.time("git");
   const repo = await freestyle.createGitRepository({
@@ -31,7 +35,7 @@ export async function createApp({
     public: true,
     source: {
       type: "git",
-      url: templates[templateId].repo,
+      url: templateSelection.selectedTemplate.repo,
     },
   });
   await freestyle.grantGitPermission({

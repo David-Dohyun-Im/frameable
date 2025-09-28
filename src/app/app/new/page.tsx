@@ -42,7 +42,6 @@ export default async function NewAppRedirectPage({
 
   const { id } = await createApp({
     initialMessage: decodeURIComponent(message),
-    templateId: search.template as string,
   });
 
   redirect(`/app/${id}`);
