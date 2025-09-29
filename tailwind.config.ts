@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        'sf-pro': ['SF Pro Display', 'system-ui', 'sans-serif'],
+      },
       backgroundImage: {
         'grid-pattern': 'radial-gradient(circle, #000 1px, transparent 1px)',
       },
