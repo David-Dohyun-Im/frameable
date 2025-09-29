@@ -92,7 +92,8 @@ export default function Home() {
         backgroundImage: 'url(/background.png)', 
         backgroundSize: 'cover', 
         backgroundPosition: 'center top',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}>
         <div className="flex w-full justify-between items-center px-20">
           <Image
@@ -196,6 +197,14 @@ export default function Home() {
             <Examples setPrompt={setPrompt} />
           </div>
         </div>
+        
+        {/* Hero 아래 새로운 섹션 */}
+        <div className="w-full bg-white py-16 mt-44 max-w-7xl h-screen mx-auto rounded-3xl relative">
+          <div className="absolute top-6 left-8 mt-2 font-sf-pro font-bold text-2xl text-gray-900 select-none" style={{ fontFamily: "'SF Pro Display', system-ui, sans-serif", fontWeight: 700 }}>
+            Start from templates
+          </div>
+        </div>
+        
         <div className="py-8 mx-0 sm:-mx-4">
           <UserApps />
         </div>
