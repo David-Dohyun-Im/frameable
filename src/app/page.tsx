@@ -90,8 +90,8 @@ export default function Home() {
     <QueryClientProvider client={queryClient}>
       <main className="min-h-screen p-4 relative" style={{ 
         backgroundImage: 'url(/background.png)', 
-        backgroundSize: 'cover', 
-        backgroundPosition: 'center top',
+        backgroundSize: '110%', 
+        backgroundPosition: 'center -80px',
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed'
       }}>
@@ -111,8 +111,7 @@ export default function Home() {
         <div>
           <div className="w-full max-w-6xl px-4 sm:px-0 mx-auto flex flex-col items-center mt-52 sm:mt-60 md:mt-72 col-start-1 col-end-1 row-start-1 row-end-1 z-10">
             <p className="text-black text-center mb-2 font-semibold" style={{ fontSize: '40px', lineHeight: '1', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
-            Your landing page <br />
-            shouldn't look AI generated
+            Build websites with taste
             </p>
 
             {/* Hero Input Component */}
