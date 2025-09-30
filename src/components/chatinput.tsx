@@ -115,19 +115,33 @@ export function PromptInputBasic({
         onValueChange={(value) => onValueChange?.(value)}
         isLoading={isLoading || isCompressing}
         onSubmit={handleSubmitWithData}
-        className="w-full border dark:bg-accent shadow-sm rounded-lg border-gray-300focus-within:border-gray-400 focus-within:ring-1 transition-all duration-200 ease-in-out focus-within:ring-gray-200 border-gray-300"
+        className="w-[90%] mx-auto bg-white dark:bg-accent rounded-lg transition-all duration-200 ease-in-out border-0 mb-3 relative"
       >
         <PromptInputTextarea
           placeholder={
             isGenerating
-              ? "Adorable is working..."
+              ? "Moov is moving..."
               : isCompressing
                 ? "Compressing images..."
-                : "Type your message here..."
+                : "Ask Moov..."
           }
-          className="pr-20 bg-transparent dark:bg-transparent"
+          className="pr-10 bg-transparent dark:bg-transparent min-h-[80px]"
           disabled={disabled}
         />
+        <button
+          type="button"
+          onClick={handleSubmitWithData}
+          disabled={isGenerating || disabled || (input.trim() === "" && images.length === 0)}
+          className="absolute right-2 bottom-2 h-6 w-6 rounded-md bg-black hover:bg-gray-800 disabled:bg-gray-300 disabled:cursor-not-allowed transition-colors flex items-center justify-center"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
+            <title>Send AI Message</title>
+            <g transform="translate(4 4)">
+              <path d="M 0 4 L 4 0 L 8 4" fill="transparent" strokeWidth="1.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="text-white"></path>
+              <path d="M 4 1.5 L 4 8" fill="transparent" strokeWidth="1.5" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="text-white"></path>
+            </g>
+          </svg>
+        </button>
       </PromptInput>
 
       <input
@@ -138,43 +152,6 @@ export function PromptInputBasic({
         onChange={handleFileSelect}
         className="hidden"
       />
-
-      <div className="absolute right-3 bottom-3 flex gap-1">
-        <Button
-          variant="ghost"
-          size="icon"
-          className="h-8 w-8 rounded-full"
-          onClick={() => fileInputRef.current?.click()}
-          disabled={isGenerating || disabled}
-        >
-          <Paperclip className="h-4 w-4" />
-        </Button>
-
-        {isGenerating ? (
-          <Button
-            variant={"default"}
-            size="icon"
-            className="h-8 w-8 rounded-full"
-            onClick={stop}
-          >
-            <SquareIcon className="h-4 w-4" />
-          </Button>
-        ) : (
-          <Button
-            variant={"default"}
-            size="icon"
-            className="h-8 w-8 rounded-full"
-            disabled={
-              isGenerating ||
-              disabled ||
-              (input.trim() === "" && images.length === 0)
-            }
-            onClick={handleSubmitWithData}
-          >
-            <ArrowUp className="h-4 w-4" />
-          </Button>
-        )}
-      </div>
     </div>
   );
 }

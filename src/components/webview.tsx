@@ -62,7 +62,7 @@ export default function WebView(props: {
 
   return (
     <div 
-      className="flex flex-col overflow-hidden h-screen border-l transition-opacity duration-700 mt-[2px]"
+      className="flex flex-col overflow-hidden h-screen transition-opacity duration-700 mt-[2px]"
       style={{ 
         backgroundImage: 'url(/drawingpaper.png)', 
         backgroundSize: 'cover', 
@@ -71,7 +71,7 @@ export default function WebView(props: {
       }}
     >
       <div 
-        className="h-16 border-b border-gray-200 items-center flex px-4 bg-background sticky top-0 justify-end gap-2"
+        className="h-16 items-center flex px-4 bg-background sticky top-0 justify-end gap-2 rounded-tr-lg"
         style={{ 
           backgroundImage: 'url(/drawingpaper.png)', 
           backgroundSize: 'cover', 
@@ -118,7 +118,7 @@ export default function WebView(props: {
         <ShareButton domain={props.domain} appId={props.appId} />
       </div>
       <div 
-        className="flex-1 relative"
+        className="flex-1 relative shadow-2xl rounded-lg overflow-hidden"
         style={{
           backgroundImage: 'url(/drawingpaper.png)',
           backgroundSize: 'cover',

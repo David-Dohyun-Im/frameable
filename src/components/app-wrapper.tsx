@@ -168,7 +168,7 @@ export default function AppWrapper({
       {/* Mobile tab navigation */}
       {isMobile && (
         <div
-          className="fixed bottom-0 left-0 right-0 flex border-t bg-background/95 backdrop-blur-sm pb-safe h-20"
+          className="fixed bottom-0 left-0 right-0 flex bg-background/95 backdrop-blur-sm pb-safe h-20"
           style={{ 
             paddingBottom: "env(safe-area-inset-bottom)",
             backgroundImage: 'url(/drawingpaper.png)', 
