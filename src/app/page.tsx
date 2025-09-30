@@ -2,8 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import { PromptInput, PromptInputActions } from "@/components/ui/prompt-input";
-import Image from "next/image";
-import LogoSvg from "@/logo.svg";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ExampleButton } from "@/components/ExampleButton";
@@ -24,11 +22,10 @@ const typingOptions = [
 ];
 
 export default function Home() {
-  const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [projectDescription, setProjectDescription] = useState("");
   const [typingText, setTypingText] = useState("");
-  const [baseText] = useState("Ask Dooi to create ");
+  const [baseText] = useState("Ask Moov to create ");
   const router = useRouter();
 
   // Typing animation effect
@@ -82,7 +79,7 @@ export default function Home() {
     setIsLoading(true);
 
     router.push(
-      `/app/new?message=${encodeURIComponent(prompt)}`
+      `/app/new?message=${encodeURIComponent(projectDescription)}`
     );
   };
 
@@ -96,22 +93,18 @@ export default function Home() {
         backgroundAttachment: 'fixed'
       }}>
         <div className="flex w-full justify-between items-center px-20">
-          <Image
-            className="dark:invert"
-            src={LogoSvg}
-            alt="Adorable Logo"
-            width={90}
-            height={90}
-          />
+          <div className="text-black font-medium" style={{ fontSize: '36px', fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', fontWeight: 500 }}>
+            Moov
+          </div>
           <div className="flex items-center gap-2 flex-1 justify-end">
             <UserButton />
           </div>
         </div>
 
         <div>
-          <div className="w-full max-w-6xl px-4 sm:px-0 mx-auto flex flex-col items-center mt-52 sm:mt-60 md:mt-72 col-start-1 col-end-1 row-start-1 row-end-1 z-10">
-            <p className="text-black text-center mb-2 font-semibold" style={{ fontSize: '40px', lineHeight: '1', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
-            Build websites with taste
+          <div className="w-full max-w-6xl px-4 sm:px-0 mx-auto flex flex-col items-center mt-52 sm:mt-60 md:mt-76 col-start-1 col-end-1 row-start-1 row-end-1 z-10">
+            <p className="text-black text-center font-semibold" style={{ fontSize: '40px', lineHeight: '1', fontFamily: 'SF Pro Display, -apple-system, BlinkMacSystemFont, system-ui, sans-serif' }}>
+            Build websites that <span style={{ fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', fontSize: '44px', fontWeight: 500 }}>Moov</span>
             </p>
 
             {/* Hero Input Component */}
@@ -193,7 +186,7 @@ export default function Home() {
               </div>
               </div>
             </div>
-            <Examples setPrompt={setPrompt} />
+            <Examples setProjectDescription={setProjectDescription} />
           </div>
         </div>
         
@@ -212,32 +205,32 @@ export default function Home() {
   );
 }
 
-function Examples({ setPrompt }: { setPrompt: (text: string) => void }) {
+function Examples({ setProjectDescription }: { setProjectDescription: (text: string) => void }) {
   return (
     <div className="mt-8">
       <div className="flex flex-wrap justify-center gap-3 px-2 w-full max-w-4xl mx-auto">
         <ExampleButton
-          text="Dog Food Marketplace"
-          promptText="Build a dog food marketplace where users can browse and purchase premium dog food."
+          text="Landing page of a AI native ERP"
+          promptText="Build a landing page for an AI native ERP system showcasing its features and benefits."
           onClick={(text) => {
             console.log("Example clicked:", text);
-            setPrompt(text);
+            setProjectDescription(text);
           }}
         />
         <ExampleButton
-          text="Personal Website"
-          promptText="Create a personal website with portfolio, blog, and contact sections."
+          text="Waitlist of a AI B2B SaaS"
+          promptText="Create a waitlist page for an AI B2B SaaS with email signup and product information."
           onClick={(text) => {
             console.log("Example clicked:", text);
-            setPrompt(text);
+            setProjectDescription(text);
           }}
         />
         <ExampleButton
-          text="Burrito B2B SaaS"
-          promptText="Build a B2B SaaS for burrito shops to manage inventory, orders, and delivery logistics."
+          text="AR glasses for manufacturing factories"
+          promptText="Build a product showcase page for an AR device designed for the manufacturing industry."
           onClick={(text) => {
             console.log("Example clicked:", text);
-            setPrompt(text);
+            setProjectDescription(text);
           }}
         />
       </div>

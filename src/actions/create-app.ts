@@ -51,10 +51,23 @@ export async function createApp({
   console.timeEnd("git");
 
   console.time("dev server");
-  const { mcpEphemeralUrl, fs } = await freestyle.requestDevServer({
-    repoId: repo.repoId,
-  });
-  console.timeEnd("dev server");
+  let mcpEphemeralUrl: string;
+  let fs: any;
+  let ephemeralUrl: string;
+  
+  try {
+    const devServerResult = await freestyle.requestDevServer({
+      repoId: repo.repoId,
+    });
+    console.timeEnd("dev server");
+    
+    ({ mcpEphemeralUrl, fs, ephemeralUrl } = devServerResult);
+    console.log("Dev server created successfully:", { mcpEphemeralUrl, ephemeralUrl });
+  } catch (error) {
+    console.timeEnd("dev server");
+    console.error("Failed to create dev server:", error);
+    throw error;
+  }
 
   console.time("database: create app");
   const app = await db.transaction(async (tx) => {

@@ -18,28 +18,27 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// Temporarily disable GT Walsheim font due to path issues
-// const gtWalsheim = localFont({
-//   src: [
-//     {
-//       path: "../../public/fonts/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.otf",
-//       weight: "400",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../public/fonts/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.otf",
-//       weight: "500",
-//       style: "normal",
-//     },
-//     {
-//       path: "../../public/fonts/GT-Walsheim-Bold-Trial-BF651b7fc737c57.otf",
-//       weight: "700",
-//       style: "normal",
-//     },
-//   ],
-//   variable: "--font-gt-walsheim",
-//   fallback: ["system-ui", "sans-serif"],
-// });
+const gtWalsheim = localFont({
+  src: [
+    {
+      path: "../../public/fonts/GT-Walsheim-Regular-Trial-BF651b7fc71a47d.otf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GT-Walsheim-Medium-Trial-BF651b7fc728fb3.otf",
+      weight: "500",
+      style: "normal",
+    },
+    {
+      path: "../../public/fonts/GT-Walsheim-Bold-Trial-BF651b7fc737c57.otf",
+      weight: "700",
+      style: "normal",
+    },
+  ],
+  variable: "--font-gt-walsheim",
+  fallback: ["system-ui", "sans-serif"],
+});
 
 export const metadata: Metadata = {
   title: "Adorable",
@@ -69,7 +68,7 @@ export default function RootLayout({
       </head> */}
       <body
         className={cn(
-          `${geistSans.variable} ${geistMono.variable} antialiased`
+          `${geistSans.variable} ${geistMono.variable} ${gtWalsheim.variable} antialiased`
         )}
       >
         <ThemeProvider
