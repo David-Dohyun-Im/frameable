@@ -74,5 +74,28 @@ export const templates: Record<string, TemplateMetadata> = {
       "Customer accounts"
     ],
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React", "Shopify"]
+  },
+  ai: {
+    id: "ai",
+    name: "AI Application Template",
+    repo: "https://github.com/zachhere/yourai",
+    description: "A modern AI application template built with Next.js. Perfect for creating AI-powered applications, chatbots, AI tools, and intelligent web services.",
+    useCases: [
+      "AI-powered websites",
+      "Chatbot applications",
+      "AI SaaS platforms",
+      "Machine learning demos",
+      "AI assistant interfaces",
+      "LLM-based applications"
+    ],
+    features: [
+      "AI integration ready",
+      "Chat interface",
+      "Modern UI components",
+      "TypeScript support",
+      "Responsive design",
+      "API integration"
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "React"]
   }
 };

@@ -52,7 +52,7 @@ export default function Chat(props: {
       },
       {
         headers: {
-          "Adorable-App-Id": props.appId,
+          "Moov-App-Id": props.appId,
         },
       }
     );
@@ -83,7 +83,7 @@ export default function Chat(props: {
       },
       {
         headers: {
-          "Adorable-App-Id": props.appId,
+          "Moov-App-Id": props.appId,
         },
       }
     );
@@ -94,7 +94,7 @@ export default function Chat(props: {
     await fetch("/api/chat/" + props.appId + "/stream", {
       method: "DELETE",
       headers: {
-        "Adorable-App-Id": props.appId,
+        "Moov-App-Id": props.appId,
       },
     });
   }

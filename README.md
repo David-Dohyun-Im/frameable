@@ -2,7 +2,7 @@
   <img src="icon.png" alt="description" width="75">
 </p>
 
-# Adorable
+# Moov
 
 Open-source version of **Lovable** - an AI agent that can make websites and apps through a chat interface.
 
@@ -32,7 +32,7 @@ For guidance on building app builders with AI, see the [Freestyle guide on Build
 
    ```bash
    git clone https://github.com/freestyle-sh/adorable
-   cd adorable
+   cd moov
    ```
 
 2. Install dependencies:
@@ -50,7 +50,7 @@ For guidance on building app builders with AI, see the [Freestyle guide on Build
 
    ```
    # Database
-   DATABASE_URL=postgresql://username:password@localhost:5432/adorable
+   DATABASE_URL=postgresql://username:password@localhost:5432/moov
 
    # Anthropic API
    ANTHROPIC_API_KEY=your_anthropic_api_key
@@ -70,7 +70,7 @@ For guidance on building app builders with AI, see the [Freestyle guide on Build
 The easiest way to run Redis locally is with Docker:
 
 ```bash
-docker run --name adorable-redis -p 6379:6379 -d redis
+docker run --name moov-redis -p 6379:6379 -d redis
 ```
 
 This will start a Redis server on port 6379. If you already have Redis running, you can skip this step.
@@ -100,7 +100,7 @@ Go to the [Freestyle dashboard](https://admin.freestyle.sh/dashboard/domains) an
 Finally, add the following environment variable to your `.env` file:
 
 ```env
-PREVIEW_DOMAIN=<your-domain> # formatted like adorable.app
+PREVIEW_DOMAIN=<your-domain> # formatted like moov.app
 ```
 
 8. Add Morph for Fast Apply (optional)

@@ -6,5 +6,5 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function getAppIdFromHeaders(req: Request): string | null {
-  return req.headers.get("Adorable-App-Id");
+  return req.headers.get("Moov-App-Id");
 }

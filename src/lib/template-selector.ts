@@ -48,21 +48,24 @@ export function analyzeUserInput(userInput: string): {
   const portfolioKeywords = ['portfolio', 'personal', 'website', 'showcase', 'profile', 'about', 'resume', 'cv'];
   const newsletterKeywords = ['newsletter', 'blog', 'content', 'article', 'writing', 'publishing', 'email', 'subscription'];
   const ecommerceKeywords = ['shop', 'store', 'ecommerce', 'e-commerce', 'marketplace', 'product', 'sell', 'buy', 'cart', 'payment'];
+  const aiKeywords = ['ai', 'artificial intelligence', 'chatbot', 'chat', 'gpt', 'llm', 'machine learning', 'ml', 'assistant', 'intelligent', 'openai', 'claude', 'gemini'];
   
   const portfolioScore = portfolioKeywords.filter(keyword => input.includes(keyword)).length;
   const newsletterScore = newsletterKeywords.filter(keyword => input.includes(keyword)).length;
   const ecommerceScore = ecommerceKeywords.filter(keyword => input.includes(keyword)).length;
+  const aiScore = aiKeywords.filter(keyword => input.includes(keyword)).length;
   
-  const maxScore = Math.max(portfolioScore, newsletterScore, ecommerceScore);
-  const totalKeywords = portfolioScore + newsletterScore + ecommerceScore;
+  const maxScore = Math.max(portfolioScore, newsletterScore, ecommerceScore, aiScore);
+  const totalKeywords = portfolioScore + newsletterScore + ecommerceScore + aiScore;
   
   const suggestedTemplates = [];
   if (portfolioScore === maxScore) suggestedTemplates.push('portfolio');
   if (newsletterScore === maxScore) suggestedTemplates.push('newsletter');
   if (ecommerceScore === maxScore) suggestedTemplates.push('ecommerce');
+  if (aiScore === maxScore) suggestedTemplates.push('ai');
   
   return {
-    keywords: [...new Set([...portfolioKeywords, ...newsletterKeywords, ...ecommerceKeywords].filter(keyword => input.includes(keyword)))],
+    keywords: [...new Set([...portfolioKeywords, ...newsletterKeywords, ...ecommerceKeywords, ...aiKeywords].filter(keyword => input.includes(keyword)))],
     suggestedTemplates,
     confidence: totalKeywords > 0 ? maxScore / totalKeywords : 0.3
   };

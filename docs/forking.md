@@ -1,6 +1,6 @@
 # Forking Guide
 
-This documentation is for developers who want to work with the Adorable codebase. It's a good starting place to experiment with building your own AI-powered app builder.
+This documentation is for developers who want to work with the Moov codebase. It's a good starting place to experiment with building your own AI-powered app builder.
 
 For additional context on building app builders with AI, see the [Freestyle guide on Building an App Builder](https://docs.freestyle.sh/guides/app-builder).
 

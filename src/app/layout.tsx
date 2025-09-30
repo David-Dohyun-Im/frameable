@@ -41,7 +41,7 @@ const gtWalsheim = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Adorable",
+  title: "Moov",
   description: "Open Source AI App Builder",
   manifest: "/manifest.json",
   // viewport: {
