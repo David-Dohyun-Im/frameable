@@ -349,3 +349,15 @@ body {
   background-image: radial-gradient(circle, #000 1px, transparent 1px);
   background-size: 30px 30px;
 }
+
+/* iframe transparency for FreestyleDevServer */
+iframe {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* Make iframe content blend with parent background */
+iframe[src*="freestyle"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}

@@ -57,9 +57,27 @@ export default function AppWrapper({
   }, []);
 
   return (
-    <div className="h-screen flex flex-col" style={{ height: "100dvh" }}>
+    <div 
+      className="h-screen flex flex-col" 
+      style={{ 
+        height: "100dvh",
+        backgroundImage: 'url(/drawingpaper.png)', 
+        backgroundSize: 'cover', 
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
+      }}
+    >
       {/* Desktop and Mobile container */}
-      <div className="flex-1 overflow-hidden flex flex-col md:grid md:grid-cols-[1fr_2fr]">
+      <div 
+        className="flex-1 overflow-hidden flex flex-col md:grid md:grid-cols-[0.8fr_2.2fr]"
+        style={{ 
+          backgroundImage: 'url(/drawingpaper.png)', 
+          backgroundSize: 'cover', 
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         {/* Chat component - positioned for both mobile and desktop */}
         <div
           className={
@@ -76,8 +94,17 @@ export default function AppWrapper({
               ? {
                   top: "env(safe-area-inset-top)",
                   bottom: "calc(60px + env(safe-area-inset-bottom))",
+                  backgroundImage: 'url(/drawingpaper.png)', 
+                  backgroundSize: 'cover', 
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
                 }
-              : undefined
+              : {
+                  backgroundImage: 'url(/drawingpaper.png)', 
+                  backgroundSize: 'cover', 
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }
           }
         >
           <QueryClientProvider client={queryClient}>
@@ -114,8 +141,17 @@ export default function AppWrapper({
               ? {
                   top: "env(safe-area-inset-top)",
                   bottom: "calc(60px + env(safe-area-inset-bottom))",
+                  backgroundImage: 'url(/drawingpaper.png)', 
+                  backgroundSize: 'cover', 
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
                 }
-              : undefined
+              : {
+                  backgroundImage: 'url(/drawingpaper.png)', 
+                  backgroundSize: 'cover', 
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat'
+                }
           }
         >
           <div className="h-full overflow-hidden relative">
@@ -132,38 +168,44 @@ export default function AppWrapper({
       {/* Mobile tab navigation */}
       {isMobile && (
         <div
-          className="fixed bottom-0 left-0 right-0 flex border-t bg-background/95 backdrop-blur-sm pb-safe"
-          style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+          className="fixed bottom-0 left-0 right-0 flex border-t bg-background/95 backdrop-blur-sm pb-safe h-20"
+          style={{ 
+            paddingBottom: "env(safe-area-inset-bottom)",
+            backgroundImage: 'url(/drawingpaper.png)', 
+            backgroundSize: 'cover', 
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
         >
           <button
             onClick={() => setMobileActiveTab("chat")}
-            className={`flex-1 flex flex-col items-center justify-center py-2 px-1 transition-colors ${
+            className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
               mobileActiveTab === "chat"
                 ? "text-primary"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <MessageCircle
-              className={`h-6 w-6 mb-1 ${
+              className={`h-8 w-8 mb-2 ${
                 mobileActiveTab === "chat" ? "fill-current" : ""
               }`}
             />
-            <span className="text-xs font-medium">Chat</span>
+            <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', fontWeight: 500 }}>Chat</span>
           </button>
           <button
             onClick={() => setMobileActiveTab("preview")}
-            className={`flex-1 flex flex-col items-center justify-center py-2 px-1 transition-colors ${
+            className={`flex-1 flex flex-col items-center justify-center py-3 px-2 transition-colors ${
               mobileActiveTab === "preview"
                 ? "text-primary"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >
             <Monitor
-              className={`h-6 w-6 mb-1 ${
+              className={`h-8 w-8 mb-2 ${
                 mobileActiveTab === "preview" ? "fill-current" : ""
               }`}
             />
-            <span className="text-xs font-medium">Preview</span>
+            <span className="text-sm font-medium" style={{ fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', fontWeight: 500 }}>Preview</span>
           </button>
         </div>
       )}
