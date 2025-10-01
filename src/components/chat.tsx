@@ -223,7 +223,7 @@ export default function Chat(props: {
 function MessageBody({ message }: { message: any }) {
   if (message.role === "user") {
     return (
-      <div className="flex justify-end py-1 mb-4">
+      <div className="flex justify-end py-1 mb-3">
         <div className="rounded-xl px-4 py-1 max-w-[80%] ml-auto" style={{ backgroundColor: '#FFF5D1' }}>
           {message.parts.map((part: any, index: number) => {
             if (part.type === "text") {
@@ -254,7 +254,7 @@ function MessageBody({ message }: { message: any }) {
 
   if (Array.isArray(message.parts) && message.parts.length !== 0) {
     return (
-      <div className="mb-4 ml-4">
+      <div className="mb-4 ml-4 mt-4">
         {message.parts.map((part: any, index: any) => {
           if (part.type === "text") {
             return (
@@ -303,7 +303,7 @@ function MessageBody({ message }: { message: any }) {
 
   if (message.parts) {
     return (
-      <div className="ml-4">
+      <div className="ml-4 mt-2">
         <Markdown className="prose prose-sm dark:prose-invert max-w-none">
           {message.parts
             .map((part: any) =>
