@@ -158,6 +158,7 @@ export default function WebView(props: {
 
         {/* Right: Make it Moov, GitHub, and Publish buttons */}
         <div className="flex items-center gap-2">
+          
           <Button
             variant={"ghost"}
             size={"default"}
@@ -168,7 +169,11 @@ export default function WebView(props: {
               fontSize: '16px'
             }}
           >
-            Make it Moov
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.72128 2.30043C5.15443 1.84339 4.30991 2.23829 4.2972 2.96633L4.12404 12.8866C4.10956 13.7161 5.14985 14.0982 5.67569 13.4565L8.17402 10.4078C8.3606 10.1802 8.64105 10.0504 8.93529 10.0555L12.9319 10.1253C13.7649 10.1398 14.145 9.09217 13.4964 8.5693L5.72128 2.30043Z" fill="#212121"/>
+            </svg>
+
+            Design
           </Button>
           <Button
             variant={"ghost"}

@@ -108,7 +108,7 @@ export class AIService {
       resourceId: appId,
       maxSteps: options?.maxSteps ?? 100,
       maxRetries: options?.maxRetries ?? 0,
-      maxOutputTokens: options?.maxOutputTokens ?? 64000,
+      maxOutputTokens: options?.maxOutputTokens ?? 8192,
       toolsets: {
         ...(process.env.MORPH_API_KEY
           ? {

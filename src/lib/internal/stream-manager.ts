@@ -249,7 +249,7 @@ export async function sendMessageWithStreaming(
       resourceId: appId,
       maxSteps: 100,
       maxRetries: 0,
-      maxOutputTokens: 64000,
+      maxOutputTokens: 8192,
       async onChunk() {
         if (Date.now() - lastKeepAlive > 5000) {
           lastKeepAlive = Date.now();
