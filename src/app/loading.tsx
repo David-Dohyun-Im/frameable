@@ -195,7 +195,7 @@ export default function Loading() {
 
               {/* Loading content area */}
               <div 
-                className="flex-1 relative shadow-2xl rounded-lg overflow-hidden"
+                className="flex-1 relative shadow-2xl rounded-lg overflow-visible"
                 style={{
                   backgroundImage: 'url(/drawingpaper.png)',
                   backgroundSize: 'cover',
@@ -212,8 +212,8 @@ export default function Loading() {
                     backgroundRepeat: 'no-repeat'
                   }}
                 >
-                  <div className="relative flex justify-center">
-                    <div className="opacity-100 w-full max-w-4xl">
+                  <div className="relative flex justify-center w-full">
+                    <div className="opacity-100 w-full max-w-lg">
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
                         <TypingAnimation className="text-gray-800" delay={0}>moov analyze --user-intent</TypingAnimation>
                         <AnimatedSpan className="text-blue-600" delay={1000}>✔ Analyzing user requirements</AnimatedSpan>
@@ -224,7 +224,7 @@ export default function Loading() {
                       </Terminal>
                     </div>
                     
-                    <div className="absolute top-0 left-0 w-full max-w-4xl opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 8s forwards' }}>
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-lg opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 8s forwards' }}>
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
                         <TypingAnimation className="text-gray-800" delay={8000}>moov optimize --performance</TypingAnimation>
                         <AnimatedSpan className="text-blue-600" delay={9000}>✔ Optimizing bundle size</AnimatedSpan>
@@ -235,7 +235,7 @@ export default function Loading() {
                       </Terminal>
                     </div>
                     
-                    <div className="absolute top-0 left-0 w-full max-w-4xl opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 16s forwards' }}>
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-lg opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 16s forwards' }}>
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
                         <TypingAnimation className="text-gray-800" delay={16000}>moov deploy --preview</TypingAnimation>
                         <AnimatedSpan className="text-blue-600" delay={17000}>✔ Building production assets</AnimatedSpan>
