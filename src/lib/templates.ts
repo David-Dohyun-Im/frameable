@@ -78,7 +78,7 @@ export const templates: Record<string, TemplateMetadata> = {
   ai: {
     id: "ai",
     name: "AI Application Template",
-    repo: "https://github.com/David-Dohyun-Im/youraidemo.git",
+    repo: "https://github.com/David-Dohyun-Im/youraidemo-init",
     description: "A modern AI application template built with Next.js. Perfect for creating AI-powered applications, chatbots, AI tools, and intelligent web services.",
     useCases: [
       "AI-powered websites",
