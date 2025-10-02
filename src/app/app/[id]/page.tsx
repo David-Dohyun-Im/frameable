@@ -1,6 +1,7 @@
 "use server";
 
 import { getApp } from "@/actions/get-app";
+import { createApp } from "@/actions/create-app";
 import AppWrapper from "../../../components/app-wrapper";
 import { freestyle } from "@/lib/freestyle";
 import { db } from "@/db/schema";
@@ -11,16 +12,41 @@ import { memory } from "@/mastra/agents/builder";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/dist/client/link";
 import { chatState } from "@/actions/chat-streaming";
+import { redirect } from "next/navigation";
 
 export default async function AppPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ [key: string]: string | string[] }>;
 }) {
   const { id } = await params;
+  const search = await searchParams;
 
   const user = await getUser();
+
+  // Check if this is a new app creation request
+  const isNew = search.isNew === "true";
+  let message: string | undefined;
+  
+  if (isNew) {
+    if (Array.isArray(search.message)) {
+      message = search.message[0];
+    } else {
+      message = search.message;
+    }
+    
+    if (message) {
+      // Create the new app
+      const newApp = await createApp({
+        initialMessage: decodeURIComponent(message),
+      });
+      
+      // Redirect to the actual app ID
+      redirect(`/app/${newApp.id}`);
+    }
+  }
 
   const userPermission = (
     await db

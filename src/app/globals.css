@@ -2,6 +2,15 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /* SF Pro Display Font */
 @font-face {
   font-family: 'SF Pro Display';

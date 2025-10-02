@@ -78,8 +78,11 @@ export default function Home() {
   const handleSubmit = async () => {
     setIsLoading(true);
 
+    // Create a temporary ID for the new app
+    const tempId = crypto.randomUUID();
+    
     router.push(
-      `/app/new?message=${encodeURIComponent(projectDescription)}`
+      `/app/${tempId}?message=${encodeURIComponent(projectDescription)}&isNew=true`
     );
   };
 
