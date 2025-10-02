@@ -178,7 +178,7 @@ export default function Chat(props: {
                       <path d="M209.371 21.5293L204.908 23.7852V22.877L208.287 21.2656V21.207L204.908 19.5859V18.6777L209.371 20.9434V21.5293Z" fill="black"/>
                     </g>
                     <defs>
-                      <filter id="filter0_d_440_184" x="0" y="0" width="224" height="57" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                      <filter id="filter0_d_440_184" x="0" y="0" width="224" height="57" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
                         <feFlood floodOpacity="0" result="BackgroundImageFix"/>
                         <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
                         <feOffset/>
