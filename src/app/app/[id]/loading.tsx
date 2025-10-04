@@ -1,10 +1,15 @@
+"use client";
+
 import "@/components/loader.css";
 import { Button } from "@/components/ui/button";
 import { RefreshCwIcon } from "lucide-react";
 import { ShareButton } from "@/components/share-button";
 import { Terminal, TypingAnimation, AnimatedSpan } from "@/components/ui/terminal";
+import { useState } from "react";
 
 export default function Loading() {
+  const [isDesignMode, setIsDesignMode] = useState(false);
+  
   return (
     <div 
       className="h-screen flex flex-col" 
@@ -157,18 +162,25 @@ export default function Loading() {
                 {/* Right: Make it Moov, GitHub, and Publish buttons */}
                 <div className="flex items-center gap-2">
                   
-                  <Button
-                    variant={"ghost"}
-                    size={"default"}
-                    className="bg-white text-black hover:bg-gray-100 h-10 px-2"
-                    style={{ 
-                      fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', 
-                      fontWeight: 500,
-                      fontSize: '16px'
-                    }}
-                  >
+          <Button
+            variant={"ghost"}
+            size={"default"}
+            className={`h-10 px-2 transition-all duration-300 ${
+              isDesignMode 
+                ? 'bg-white text-black border-2 border-black' 
+                : 'bg-white text-black border-2 border-transparent'
+            }`}
+            style={{ 
+              fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', 
+              fontWeight: 500,
+              fontSize: '16px',
+              backgroundColor: '#ffffff',
+              color: '#000000'
+            }}
+            onClick={() => setIsDesignMode(!isDesignMode)}
+          >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.72128 2.30043C5.15443 1.84339 4.30991 2.23829 4.2972 2.96633L4.12404 12.8866C4.10956 13.7161 5.14985 14.0982 5.67569 13.4565L8.17402 10.4078C8.3606 10.1802 8.64105 10.0504 8.93529 10.0555L12.9319 10.1253C13.7649 10.1398 14.145 9.09217 13.4964 8.5693L5.72128 2.30043Z" fill="#212121"/>
+                    <path d="M5.72128 2.30043C5.15443 1.84339 4.30991 2.23829 4.2972 2.96633L4.12404 12.8866C4.10956 13.7161 5.14985 14.0982 5.67569 13.4565L8.17402 10.4078C8.3606 10.1802 8.64105 10.0504 8.93529 10.0555L12.9319 10.1253C13.7649 10.1398 14.145 9.09217 13.4964 8.5693L5.72128 2.30043Z" fill="currentColor"/>
                     </svg>
 
                     Design
@@ -215,34 +227,34 @@ export default function Loading() {
                   <div className="relative flex justify-center w-full">
                     <div className="opacity-100 w-full max-w-lg">
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
-                        <TypingAnimation className="text-gray-800" delay={0}>moov optimize --user-experience</TypingAnimation>
-                        <AnimatedSpan className="text-blue-600" delay={1000}>✔ Understanding your design goals</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={2000}>✔ Refining component interactions</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={3000}>✔ Enhancing visual hierarchy</AnimatedSpan>
-                        <TypingAnimation className="text-gray-800" delay={4000}>Perfecting every detail...</TypingAnimation>
-                        <AnimatedSpan className="text-orange-500" delay={6000}>✨ Your masterpiece awaits!</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={0}>moov analyze --design-intent</TypingAnimation>
+                        <AnimatedSpan className="text-blue-600" delay={1000}>✔ Understanding user's design vision</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={2000}>✔ Analyzing brand personality</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={3000}>✔ Extracting design preferences</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={4000}>Decoding your creative vision...</TypingAnimation>
+                        <AnimatedSpan className="text-orange-500" delay={6000}>🎨 Design intent captured!</AnimatedSpan>
                       </Terminal>
                     </div>
                     
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-lg opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 8s forwards' }}>
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
-                        <TypingAnimation className="text-gray-800" delay={8000}>moov test --accessibility</TypingAnimation>
-                        <AnimatedSpan className="text-blue-600" delay={9000}>✔ Running accessibility audits</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={10000}>✔ Optimizing for screen readers</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={11000}>✔ Ensuring keyboard navigation</AnimatedSpan>
-                        <TypingAnimation className="text-gray-800" delay={12000}>Making it accessible to everyone...</TypingAnimation>
-                        <AnimatedSpan className="text-orange-500" delay={14000}>♿ Accessibility perfected!</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={8000}>moov design --color-system</TypingAnimation>
+                        <AnimatedSpan className="text-blue-600" delay={9000}>✔ Setting color palette</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={10000}>✔ Configuring typography</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={11000}>✔ Crafting copywriting tone</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={12000}>Building visual foundation...</TypingAnimation>
+                        <AnimatedSpan className="text-orange-500" delay={14000}>🎨 Design system ready!</AnimatedSpan>
                       </Terminal>
                     </div>
                     
                     <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-lg opacity-0 transition-opacity duration-500" style={{ animation: 'fadeIn 0.5s ease-in-out 16s forwards' }}>
                       <Terminal className="max-h-[500px] w-full bg-white text-gray-800 border-gray-300" sequence={false}>
-                        <TypingAnimation className="text-gray-800" delay={16000}>moov monitor --analytics</TypingAnimation>
-                        <AnimatedSpan className="text-blue-600" delay={17000}>✔ Setting up performance monitoring</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={18000}>✔ Configuring error tracking</AnimatedSpan>
-                        <AnimatedSpan className="text-blue-600" delay={19000}>✔ Enabling real-time insights</AnimatedSpan>
-                        <TypingAnimation className="text-gray-800" delay={20000}>Preparing for launch...</TypingAnimation>
-                        <AnimatedSpan className="text-orange-500" delay={22000}>📊 Analytics ready!</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={16000}>moov build --components</TypingAnimation>
+                        <AnimatedSpan className="text-blue-600" delay={17000}>✔ Arranging component layout</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={18000}>✔ Refining component details</AnimatedSpan>
+                        <AnimatedSpan className="text-blue-600" delay={19000}>✔ Optimizing user experience</AnimatedSpan>
+                        <TypingAnimation className="text-gray-800" delay={20000}>Perfecting every interaction...</TypingAnimation>
+                        <AnimatedSpan className="text-orange-500" delay={22000}>✨ Your masterpiece is ready!</AnimatedSpan>
                       </Terminal>
                     </div>
                   </div>

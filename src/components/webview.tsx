@@ -6,7 +6,7 @@ import {
   FreestyleDevServer,
   FreestyleDevServerHandle,
 } from "freestyle-sandboxes/react/dev-server";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { RefreshCwIcon, GitBranchIcon } from "lucide-react";
 import { ShareButton } from "./share-button";
@@ -59,6 +59,7 @@ export default function WebView(props: {
   }, []);
 
   const devServerRef = useRef<FreestyleDevServerHandle>(null);
+  const [isDesignMode, setIsDesignMode] = useState(false);
 
   return (
     <div 
@@ -162,15 +163,22 @@ export default function WebView(props: {
           <Button
             variant={"ghost"}
             size={"default"}
-            className="bg-white text-black hover:bg-gray-100 h-10 px-2"
+            className={`h-10 px-2 transition-all duration-300 ${
+              isDesignMode 
+                ? 'bg-white text-black border-2 border-black' 
+                : 'bg-white text-black border-2 border-transparent'
+            }`}
             style={{ 
               fontFamily: 'var(--font-gt-walsheim), system-ui, sans-serif', 
               fontWeight: 500,
-              fontSize: '16px'
+              fontSize: '16px',
+              backgroundColor: '#ffffff',
+              color: '#000000'
             }}
+            onClick={() => setIsDesignMode(!isDesignMode)}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M5.72128 2.30043C5.15443 1.84339 4.30991 2.23829 4.2972 2.96633L4.12404 12.8866C4.10956 13.7161 5.14985 14.0982 5.67569 13.4565L8.17402 10.4078C8.3606 10.1802 8.64105 10.0504 8.93529 10.0555L12.9319 10.1253C13.7649 10.1398 14.145 9.09217 13.4964 8.5693L5.72128 2.30043Z" fill="#212121"/>
+            <path d="M5.72128 2.30043C5.15443 1.84339 4.30991 2.23829 4.2972 2.96633L4.12404 12.8866C4.10956 13.7161 5.14985 14.0982 5.67569 13.4565L8.17402 10.4078C8.3606 10.1802 8.64105 10.0504 8.93529 10.0555L12.9319 10.1253C13.7649 10.1398 14.145 9.09217 13.4964 8.5693L5.72128 2.30043Z" fill="currentColor"/>
             </svg>
 
             Design
