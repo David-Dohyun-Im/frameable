@@ -1,19 +1,38 @@
 <p align="center">
-  <img src="icon.png" alt="description" width="75">
+  <img src="icon.png" alt="Frameable Logo" width="75">
 </p>
 
-# Moov
+# Frameable
 
-Open-source version of **Lovable** - an AI agent that can make websites and apps through a chat interface.
+**Build designer level websites at one shot** - An AI-powered app builder that creates websites and applications through natural language conversations.
 
-For guidance on building app builders with AI, see the [Freestyle guide on Building an App Builder](https://docs.freestyle.sh/guides/app-builder).
+Frameable is an intelligent development assistant that transforms your ideas into fully functional web applications. Simply describe what you want to build, and Frameable will create it for you with real-time preview and deployment capabilities.
+
+> **Note**: This project is a fork of [Adorable](https://github.com/freestyle-sh/Adorable) by Freestyle, an open-source version of Lovable - an AI agent that can make websites and apps through a chat interface.
 
 ## Features
 
-- Chat interface for interacting with AI code assistants
-- Patch-based code editing with user approval
-- Git integration for version control
-- Preview capabilities for code changes
+- 🤖 **AI-Powered Development**: Natural language to code conversion
+- 💬 **Interactive Chat Interface**: Real-time conversation with AI assistant
+- 🚀 **Live Preview**: See your applications come to life instantly
+- 🔄 **Real-time Collaboration**: Multiple users can work on the same project
+- 📱 **Responsive Design**: Automatically generates mobile-friendly interfaces
+- 🎨 **Modern UI Components**: Built with Tailwind CSS and Radix UI
+- 🔐 **User Authentication**: Secure login with Stack Auth
+- 📊 **Project Management**: Track and organize your applications
+- 🌐 **Live Deployment**: Deploy applications with custom domains
+- 🛠️ **Code Generation**: Full-stack applications with Next.js, React, and TypeScript
+
+## Technology Stack
+
+- **Frontend**: Next.js 15, React 19, TypeScript
+- **Styling**: Tailwind CSS, Radix UI, Framer Motion
+- **AI Integration**: Anthropic Claude, Freestyle Sandboxes, Mastra
+- **Database**: PostgreSQL with Drizzle ORM
+- **Authentication**: Stack Auth
+- **Caching**: Redis
+- **Deployment**: Freestyle Cloud Platform
+- **State Management**: Zustand, TanStack Query
 
 ## Setup Instructions
 
@@ -31,8 +50,8 @@ For guidance on building app builders with AI, see the [Freestyle guide on Build
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/freestyle-sh/adorable
-   cd moov
+   git clone https://github.com/David-Dohyun-Im/frameable.git
+   cd frameable
    ```
 
 2. Install dependencies:
@@ -48,15 +67,29 @@ For guidance on building app builders with AI, see the [Freestyle guide on Build
 4. Set up environment variables:
    Create a `.env` file in the root directory with the following variables:
 
-   ```
+   ```env
    # Database
-   DATABASE_URL=postgresql://username:password@localhost:5432/moov
+   DATABASE_URL= {get it from Neon}
+
+   # Redis
+   REDIS_URL=redis://localhost:6379
 
    # Anthropic API
    ANTHROPIC_API_KEY=your_anthropic_api_key
 
    # Freestyle API
    FREESTYLE_API_KEY=your_freestyle_api_key
+
+   # Stack Auth
+   NEXT_PUBLIC_STACK_PROJECT_ID=your_stack_project_id
+   NEXT_PUBLIC_STACK_PUBLISHABLE_CLIENT_KEY=your_publishable_client_key
+   STACK_SECRET_SERVER_KEY=your_secret_server_key
+
+   # Optional: Preview Domain
+   PREVIEW_DOMAIN=your-domain.com
+
+   # Optional: Morph API for fast edits
+   MORPH_API_KEY=your_morph_api_key
    ```
 
 5. Initialize the database:
@@ -121,6 +154,20 @@ This automatically enables the Morph fast edit tool which provides faster code m
 
 10. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## How to Use Frameable
+
+1. **Start Building**: Enter your project description in the main input field
+2. **Chat with AI**: Use the chat interface to refine and iterate on your application
+3. **Live Preview**: Watch your application update in real-time as you make changes
+4. **Deploy**: Publish your application with a custom domain
+
+### Example Prompts
+
+- "Create a landing page for an AI-powered SaaS product"
+- "Build a dashboard for tracking user analytics"
+- "Make a portfolio website for a freelance designer"
+- "Create a blog with a modern, responsive design"
+
 ## Developer Documentation
 
 - [Forking Guide](./docs/forking.md) - Comprehensive guide for developers working with this codebase
@@ -139,3 +186,17 @@ Or use the included deployment script:
 ```bash
 ./deploy.sh
 ```
+
+## Contributing
+
+We welcome contributions to Frameable! Here's how you can help:
+
+1. **Report Issues**: Found a bug? Please report it on our issue tracker
+2. **Feature Requests**: Have an idea? We'd love to hear it
+3. **Code Contributions**: Submit pull requests for bug fixes or new features
+4. **Documentation**: Help improve our documentation
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
